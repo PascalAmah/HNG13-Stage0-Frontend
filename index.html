@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pascal Amaliri - Profile Card</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <article class="profile-card" data-testid="test-profile-card">
+        <div class="card-content">
+          <figure class="avatar-container">
+            <img
+              src="https://i.pravatar.cc/400?img=47"
+              alt="Pascal Amaliri - Product Designer profile photo"
+              data-testid="test-user-avatar"
+              class="avatar-image"
+            />
+          </figure>
+
+          <div class="profile-info">
+            <header class="profile-header">
+              <h1 data-testid="test-user-name" class="user-name">
+                Pascal Amaliri
+                <span class="verified-badge" aria-label="Verified user">✓</span>
+              </h1>
+              <p data-testid="test-user-bio" class="user-bio">
+                Software Engineer - Focus on turn ideas into codes
+              </p>
+            </header>
+
+            <nav aria-label="Social media links">
+              <ul data-testid="test-user-social-links" class="social-links">
+                <li>
+                  <a
+                    href="https://x.com/chisax_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid="test-user-social-twitter"
+                    class="social-link"
+                  >
+                    <span class="social-icon">🐦</span>
+                    <img
+                      src="/frontend-wizards-stage0/images/twitter.png"
+                      alt="x"
+                    />
+                    X
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://linkedin.com/in/pascal-amaliri"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid="test-user-social-linkedin"
+                    class="social-link"
+                  >
+                    <span class="social-icon"></span>
+                    <img
+                      src="/frontend-wizards-stage0/images/linkedin.png"
+                      alt="linkedin"
+                    />
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/PascalAmah"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid="test-user-social-github"
+                    class="social-link"
+                  >
+                    <span class="social-icon">💻</span>
+                    <img
+                      src="/frontend-wizards-stage0/images/github-sign.png"
+                      alt="github"
+                    />
+                    GitHub
+                  </a>
+                </li>
+                <!-- <li>
+                  <a
+                    href="https://dribbble.com/sophiebennett"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid="test-user-social-dribbble"
+                    class="social-link"
+                  >
+                    <span class="social-icon">🎨</span>
+                    Dribbble
+                  </a>
+                </li> -->
+              </ul>
+            </nav>
+
+            <div class="time-display">
+              <span class="time-label">Current Time (ms):</span>
+              <code
+                data-testid="test-user-time"
+                class="user-time"
+                aria-live="polite"
+              ></code>
+            </div>
+
+            <section class="interests-section">
+              <h2 class="section-title">Hobbies & Interests</h2>
+              <ul
+                data-testid="test-user-hobbies"
+                class="interests-list hobbies-list"
+              >
+                <li>🎨 Software Design</li>
+                <li>📚 Reading books</li>
+                <li>🏃‍♀️ Running & fitness</li>
+                <li>☕ Coffee tasting</li>
+                <li>🎵 Listening to music</li>
+                <li>✈️ Traveling to new places</li>
+              </ul>
+            </section>
+
+            <section class="interests-section">
+              <h2 class="section-title">Dislikes</h2>
+              <ul
+                data-testid="test-user-dislikes"
+                class="interests-list dislikes-list"
+              >
+                <li>❌ Poor code structure</li>
+                <li>🐌 Slow loading websites</li>
+                <li>🎭 Cluttered interfaces</li>
+                <li>⏰ Being late</li>
+                <li>🌧️ Rainy weather</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
