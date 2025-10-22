@@ -16,6 +16,12 @@ body {
   padding: 0;
   line-height: 1.6;
   color: #2c3e50;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #e4e4e7;
 }
 
 main {
@@ -33,15 +39,88 @@ main {
   border-radius: 24px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   overflow: visible;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   width: 100%;
   max-width: 900px;
   height: auto;
+  position: relative;
 }
 
 .profile-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .profile-card {
+  background: #1e293b;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .profile-card:hover {
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  font-size: 24px;
+}
+
+.theme-toggle:hover {
+  background: #e2e8f0;
+  transform: rotate(20deg) scale(1.1);
+}
+
+.theme-toggle:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.theme-icon {
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.light-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.dark-icon {
+  opacity: 0;
+  transform: rotate(180deg);
+}
+
+body.dark-mode .theme-toggle {
+  background: #334155;
+  border-color: #475569;
+}
+
+body.dark-mode .theme-toggle:hover {
+  background: #475569;
+}
+
+body.dark-mode .light-icon {
+  opacity: 0;
+  transform: rotate(-180deg);
+}
+
+body.dark-mode .dark-icon {
+  opacity: 1;
+  transform: rotate(0deg);
 }
 
 .card-content {
@@ -107,6 +186,18 @@ main {
   outline-offset: 2px;
 }
 
+body.dark-mode .contact-item {
+  background: #0f172a;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+body.dark-mode .contact-item:hover {
+  background: #1e3a8a;
+  border-color: #3b82f6;
+  color: #93c5fd;
+}
+
 .contact-icon {
   font-size: 16px;
   flex-shrink: 0;
@@ -138,6 +229,11 @@ main {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .user-name {
+  color: #f1f5f9;
 }
 
 .verified-badge {
@@ -157,6 +253,11 @@ main {
   font-size: 16px;
   color: #64748b;
   line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .user-bio {
+  color: #94a3b8;
 }
 
 /* Time Display */
@@ -166,6 +267,11 @@ main {
   border-radius: 8px;
   margin-bottom: 24px;
   border-left: 4px solid #3b82f6;
+  transition: background 0.3s ease;
+}
+
+body.dark-mode .time-display {
+  background: #0f172a;
 }
 
 .time-label {
@@ -174,6 +280,11 @@ main {
   font-weight: 500;
   display: block;
   margin-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .time-label {
+  color: #94a3b8;
 }
 
 .user-time {
@@ -182,6 +293,11 @@ main {
   font-weight: 600;
   color: #1e293b;
   display: block;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .user-time {
+  color: #e2e8f0;
 }
 
 /* Social Links */
@@ -209,6 +325,18 @@ nav {
   font-weight: 500;
   font-size: 14px;
   transition: all 0.3s ease;
+}
+
+body.dark-mode .social-link {
+  background: #0f172a;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+body.dark-mode .social-link:hover {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
 }
 
 .social-link img {
@@ -251,6 +379,12 @@ nav {
   margin-bottom: 12px;
   padding-bottom: 8px;
   border-bottom: 2px solid #e2e8f0;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-mode .section-title {
+  color: #f1f5f9;
+  border-bottom-color: #334155;
 }
 
 .interests-list {
@@ -283,6 +417,26 @@ nav {
   background: #fee2e2;
   color: #991b1b;
   transform: translateY(-2px);
+}
+
+body.dark-mode .interests-list li {
+  background: #0f172a;
+  color: #cbd5e1;
+}
+
+body.dark-mode .hobbies-list li:hover {
+  background: #1e3a8a;
+  color: #93c5fd;
+}
+
+body.dark-mode .dislikes-list li {
+  background: #450a0a;
+  color: #fca5a5;
+}
+
+body.dark-mode .dislikes-list li:hover {
+  background: #7f1d1d;
+  color: #fecaca;
 }
 
 /* Desktop - Landscape Layout */

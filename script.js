@@ -6,9 +6,36 @@ function updateTime() {
   }
 }
 
+// Dark mode toggle functionality
+function initDarkMode() {
+  const themeToggle = document.getElementById("themeToggle");
+  const body = document.body;
+
+  // Check for saved theme preference or default to light mode
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    body.classList.add("dark-mode");
+  }
+
+  // Toggle theme on button click
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      body.classList.toggle("dark-mode");
+
+      // Save theme preference
+      if (body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    });
+  }
+}
+
 // Initialize time on page load
 document.addEventListener("DOMContentLoaded", function () {
   updateTime();
+  initDarkMode();
 
   // Update time every 100ms for accuracy
   setInterval(updateTime, 100);
