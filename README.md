@@ -119,5 +119,5 @@ This project is created for the Frontend Wizards Stage 0 task.
 
 ## 🔗 Links
 
-- Live Demo: [Add your deployed URL here]
-- Repository: [Add your GitHub repo URL here]
+- Live Demo: [https://pascalamah.github.io/HNG13-Stage0-Frontend/]
+- Repository: [https://github.com/PascalAmah/HNG13-Stage0-Frontend.git]
