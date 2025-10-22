@@ -1,4 +1,3 @@
-/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -148,6 +147,10 @@ body.dark-mode .dark-icon {
   object-fit: cover;
   border: 4px solid #f0f0f0;
   transition: transform 0.3s ease;
+}
+
+body.dark-mode .avatar-image {
+  border-color: #334155;
 }
 
 .avatar-image:hover {
@@ -346,6 +349,10 @@ body.dark-mode .social-link:hover {
   flex-shrink: 0;
 }
 
+body.dark-mode .social-link img {
+  filter: brightness(0) invert(1);
+}
+
 .social-link:hover {
   background: #3b82f6;
   color: white;
@@ -356,11 +363,6 @@ body.dark-mode .social-link:hover {
 .social-link:focus {
   outline: 2px solid #3b82f6;
   outline-offset: 2px;
-}
-
-.social-icon {
-  font-size: 18px;
-  display: none;
 }
 
 /* Interests Sections */
@@ -439,29 +441,20 @@ body.dark-mode .dislikes-list li:hover {
   color: #fecaca;
 }
 
-/* Desktop - Landscape Layout */
+/* Desktop Layout */
 @media (min-width: 769px) {
   main {
     padding: 40px;
-    align-items: flex-start;
-  }
-
-  .profile-card {
-    max-height: none;
-    overflow: visible;
-    margin: 20px 0;
   }
 
   .card-content {
     flex-direction: row;
     gap: 40px;
     align-items: flex-start;
-    overflow: visible;
   }
 
   .avatar-container {
     margin-bottom: 0;
-    position: relative;
   }
 
   .avatar-image {
@@ -474,8 +467,6 @@ body.dark-mode .dislikes-list li:hover {
   }
 
   .profile-info {
-    overflow: visible;
-    padding-right: 0;
     flex: 1;
     min-width: 0;
   }
@@ -489,21 +480,10 @@ body.dark-mode .dislikes-list li:hover {
   }
 }
 
-/* Tablet - Portrait Layout */
+/* Tablet Layout */
 @media (max-width: 768px) {
-  main {
-    padding: 20px;
-    height: auto;
-    min-height: 100vh;
-  }
-
-  .profile-card {
-    max-height: none;
-  }
-
   .card-content {
     padding: 30px 24px;
-    flex-direction: column;
   }
 
   .avatar-image {
@@ -511,21 +491,8 @@ body.dark-mode .dislikes-list li:hover {
     height: 150px;
   }
 
-  .avatar-container {
-    flex-direction: row;
-  }
-
   .user-name {
     font-size: 24px;
-  }
-
-  .stats-and-action {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .user-stats {
-    justify-content: center;
   }
 
   .social-links {
@@ -533,7 +500,7 @@ body.dark-mode .dislikes-list li:hover {
   }
 }
 
-/* Mobile - Portrait Layout (Viewport) */
+/* Mobile Layout */
 @media (max-width: 480px) {
   body {
     padding: 0;
@@ -542,20 +509,16 @@ body.dark-mode .dislikes-list li:hover {
   main {
     padding: 0;
     height: 100vh;
-    min-height: 100vh;
   }
 
   .profile-card {
     border-radius: 0;
     height: 100vh;
     max-width: 100%;
-    display: flex;
-    flex-direction: column;
   }
 
   .card-content {
     padding: 24px 20px;
-    flex-direction: column;
     overflow-y: auto;
     height: 100%;
   }
@@ -563,10 +526,6 @@ body.dark-mode .dislikes-list li:hover {
   .avatar-image {
     width: 120px;
     height: 120px;
-  }
-
-  .avatar-container {
-    flex-direction: row;
   }
 
   .user-name {
@@ -577,11 +536,6 @@ body.dark-mode .dislikes-list li:hover {
     font-size: 15px;
   }
 
-  .stat-item {
-    font-size: 14px;
-  }
-
-  /* Custom scrollbar for mobile */
   .card-content::-webkit-scrollbar {
     width: 4px;
   }
@@ -596,29 +550,15 @@ body.dark-mode .dislikes-list li:hover {
   }
 }
 
-/* Accessibility improvements */
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
 
-/* Focus visible for keyboard navigation */
 *:focus-visible {
   outline: 2px solid #3b82f6;
   outline-offset: 2px;
-}
-
-/* Print styles */
-@media print {
-  body {
-    background: white;
-  }
-
-  .profile-card {
-    box-shadow: none;
-    border: 1px solid #e2e8f0;
-  }
 }

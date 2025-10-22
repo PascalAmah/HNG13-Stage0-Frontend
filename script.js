@@ -6,33 +6,27 @@ function updateTime() {
   }
 }
 
-// Dark mode toggle functionality
+// Dark mode toggle - NO localStorage, just in-memory state
 function initDarkMode() {
   const themeToggle = document.getElementById("themeToggle");
   const body = document.body;
 
-  // Check for saved theme preference or default to light mode
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    body.classList.add("dark-mode");
-  }
-
-  // Toggle theme on button click
   if (themeToggle) {
     themeToggle.addEventListener("click", function () {
       body.classList.toggle("dark-mode");
-
-      // Save theme preference
-      if (body.classList.contains("dark-mode")) {
-        localStorage.setItem("theme", "dark");
-      } else {
-        localStorage.setItem("theme", "light");
-      }
     });
+  }
+
+  // Optional: Check system preference on load
+  if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    body.classList.add("dark-mode");
   }
 }
 
-// Initialize time on page load
+// Initialize on page load
 document.addEventListener("DOMContentLoaded", function () {
   updateTime();
   initDarkMode();
@@ -40,20 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Update time every 100ms for accuracy
   setInterval(updateTime, 100);
 
-  // Add smooth scroll behavior
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        target.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
-    });
-  });
-
-  // Add keyboard navigation enhancement
+  // Keyboard navigation enhancement
   const focusableElements = document.querySelectorAll(
     'a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
   );
@@ -62,32 +43,23 @@ document.addEventListener("DOMContentLoaded", function () {
     element.addEventListener("keydown", function (e) {
       if (e.key === "Enter" || e.key === " ") {
         if (this.tagName === "A" || this.tagName === "BUTTON") {
+          e.preventDefault();
           this.click();
         }
       }
     });
   });
 
-  // Add animation on scroll (if needed in future)
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
-  };
-
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
-      }
-    });
-  }, observerOptions);
-
-  // Observe sections for animation
-  document.querySelectorAll(".interests-section").forEach((section) => {
+  // Stagger animation for sections
+  const sections = document.querySelectorAll(".interests-section");
+  sections.forEach((section, index) => {
     section.style.opacity = "0";
     section.style.transform = "translateY(20px)";
-    section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-    observer.observe(section);
+
+    setTimeout(() => {
+      section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+      section.style.opacity = "1";
+      section.style.transform = "translateY(0)";
+    }, index * 150);
   });
 });
